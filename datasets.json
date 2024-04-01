@@ -27,6 +27,7 @@
     "authors": ["Michael Johnson", "Emily Davis"],
     "institution": "International Brain Laboratory"
   },
+  
   {
   "id": "3",
   "name": "Allen Brain Map - Visual Coding 2P",
@@ -40,6 +41,6 @@
   "date_published": "2021-04-30",
   "authors": ["Allen Institute"],
   "institution": "Allen Institute for Brain Science"
-}
+  }
 
 ]
