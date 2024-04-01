@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dataset Search</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
+    <script>
+        var idx; // Placeholder for the Lunr index
+        var datasets; // Placeholder for the datasets data
+
+        // Fetch the dataset JSON, create the index, and store the data
+        fetch('datasets.json').then(function(response) {
+            return response.json();
+        }).then(function(data) {
+            datasets = data; // Store the datasets globally
+            idx = lunr(function() {
+                this.ref('id');
+                this.field('species');
+                this.field('type');
+                this.field('state');
+                this.field('area', { boost: 10 }); // Boosting area field to give more weight
+
+                datasets.forEach(function(doc) {
+                    // If 'area' is an array, convert it to a string for indexing
+                    if(Array.isArray(doc.area)) {
+                        doc.area = doc.area.join(" ");
+                    }
+                    this.add(doc);
+                }, this);
+            });
+        });
+
+        function search() {
+            var query = document.getElementById('search-input').value;
+            var results = idx.search(query); // Perform the search
+            // Map the search results to dataset entries
+            var resultData = results.map(function(result) {
+                return datasets.find(dataset => dataset.id === result.ref);
+            });
+            // Generate HTML for the results
+            var resultsHTML = resultData.map(function(dataset) {
+                return `<li><a href="${dataset.link}" target="_blank">${dataset.name}</a></li>`;
+            }).join('');
+            document.getElementById('results').innerHTML = `<ul>${resultsHTML}</ul>`;
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="search-input" oninput="search()">
+    <div id="results"></div>
+</body>
+</html>
