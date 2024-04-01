@@ -26,5 +26,20 @@
     "date_published": "2023-03-10",
     "authors": ["Michael Johnson", "Emily Davis"],
     "institution": "International Brain Laboratory"
-  }
+  },
+  {
+  "id": "3",
+  "name": "Allen Brain Map - Visual Coding 2P",
+  "species": "Mouse",
+  "type": "Two-photon Microscopy",
+  "state": "Awake",
+  "area": ["Primary Visual Cortex", "Anterolateral Visual Area", "Lateral Visual Area"],
+  "link": "https://portal.brain-map.org/circuits-behavior/visual-coding-2p",
+  "description": "This dataset includes comprehensive two-photon microscopy data detailing the response of neurons in various visual areas of the awake mouse brain to different visual stimuli. It forms a part of the Allen Institute's efforts to map neural circuits and their relation to behavior.",
+  "keywords": ["visual coding", "two-photon microscopy", "neural circuits", "visual stimuli", "awake mouse"],
+  "date_published": "2021-04-30",
+  "authors": ["Allen Institute"],
+  "institution": "Allen Institute for Brain Science"
+}
+
 ]
