@@ -12,12 +12,30 @@
     <iframe src="dataset-search.html" frameborder="0" width="100%" height="400px"></iframe>
   </div>
 
-  <div id="results"></div>
+  <div id="dataset-list">
+    <h2>Datasets</h2>
+    <ul id="dataset-items"></ul>
+  </div>
 
   <script src="scripts.js"></script>
 
   <script>
-    // ... (Existing script code remains the same) ...
+    document.addEventListener('DOMContentLoaded', function() {
+      fetch('datasets.json')
+        .then(response => response.json())
+        .then(datasets => {
+          const datasetList = document.getElementById('dataset-items');
+          const datasetHtml = datasets.map(dataset => `
+            <li>
+              <h3><a href="${dataset.link}" target="_blank">${dataset.name}</a></h3>
+              <p>${dataset.description}</p>
+              <p>Species: ${dataset.species}, Type: ${dataset.type}, State: ${dataset.state}, Areas: ${dataset.area.join(", ")}</p>
+              <p>Published: ${dataset.date_published}, Authors: ${dataset.authors.join(", ")}, Institution: ${dataset.institution}</p>
+            </li>
+          `).join('');
+          datasetList.innerHTML = datasetHtml;
+        });
+    });
   </script>
 
   <div id="instructions">
