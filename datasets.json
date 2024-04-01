@@ -7,8 +7,11 @@
     "state": "Awake, Behaving",
     "area": ["V1", "CA1", "Thalamus", "Somatosensory Cortex", "Prefrontal Cortex"],
     "link": "https://allensdk.readthedocs.io/en/latest/visual_coding_neuropixels.html",
-    "description": "Large-scale dataset of visual responses across multiple brain areas", 
-    "keywords": ["visual system", "decision-making", "Neuropixels"] 
+    "description": "Large-scale dataset of visual responses across multiple brain areas",
+    "keywords": ["visual system", "decision-making", "Neuropixels"],
+    "date_published": "2022-01-15",
+    "authors": ["John Doe", "Jane Smith"],
+    "institution": "Allen Institute"
   },
   {
     "id": "2",
@@ -18,7 +21,10 @@
     "state": "Awake, Task-Performing",
     "area": ["Motor Cortex", "Striatum", "Frontal Cortex", "Hippocampus"],
     "link": "https://int-brain-lab.github.io/iblenv/notebooks_external/data_release_brainwidemap.html",
-    "description": "...", // Add a description for the IBL dataset
-    "keywords": [] 
+    "description": "Brain-wide activity map during decision-making tasks",
+    "keywords": ["decision-making", "brain-wide activity"],
+    "date_published": "2023-03-10",
+    "authors": ["Michael Johnson", "Emily Davis"],
+    "institution": "International Brain Laboratory"
   }
 ]

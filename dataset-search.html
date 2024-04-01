@@ -10,11 +10,19 @@
     .metadata {
       font-style: italic;
       color: gray;
-    }  
-  </style> 
+    }
+    .no-results {
+      color: red;
+    }
+  </style>
 </head>
 <body>
-  <input type="text" id="search-input" oninput="search()"> 
+  <input type="text" id="search-input" oninput="search()">
+  <div>
+    <label><input type="checkbox" id="species-mouse" onchange="search()"> Mouse</label>
+    <label><input type="checkbox" id="type-ephys" onchange="search()"> Electrophysiology</label>
+    <!-- Add more checkbox filters for other criteria -->
+  </div>
   <div id="results"></div>
 
   <script>
