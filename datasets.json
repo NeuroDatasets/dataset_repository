@@ -29,34 +29,32 @@
   },
 
   {
-  "id": "3",
-  "name": "Allen Brain Map - Visual Coding 2P",
-  "species": "Mouse",
-  "type": "Two-photon Microscopy",
-  "state": "Awake",
-  "area": ["Primary Visual Cortex", "Anterolateral Visual Area", "Lateral Visual Area"],
-  "link": "https://portal.brain-map.org/circuits-behavior/visual-coding-2p",
-  "description": "This dataset includes comprehensive two-photon microscopy data detailing the response of neurons in various visual areas of the awake mouse brain to different visual stimuli. It forms a part of the Allen Institute's efforts to map neural circuits and their relation to behavior.",
-  "keywords": ["visual coding", "two-photon microscopy", "neural circuits", "visual stimuli", "awake mouse"],
-  "date_published": "2021-04-30",
-  "authors": ["Allen Institute"],
-  "institution": "Allen Institute for Brain Science"
+    "id": "3",
+    "name": "Allen Brain Map - Visual Coding 2P",
+    "species": "Mouse",
+    "type": "Two-photon Microscopy",
+    "state": "Awake",
+    "area": ["Primary Visual Cortex", "Anterolateral Visual Area", "Lateral Visual Area"],
+    "link": "https://portal.brain-map.org/circuits-behavior/visual-coding-2p",
+    "description": "This dataset includes comprehensive two-photon microscopy data detailing the response of neurons in various visual areas of the awake mouse brain to different visual stimuli. It forms a part of the Allen Institute's efforts to map neural circuits and their relation to behavior.",
+    "keywords": ["visual coding", "two-photon microscopy", "neural circuits", "visual stimuli", "awake mouse"],
+    "date_published": "2021-04-30",
+    "authors": ["Allen Institute"],
+    "institution": "Allen Institute for Brain Science"
   },
 
   {
-  "id": "4",
-  "name": "Allen Brain Map - Visual Behavior 2P",
-  "species": "Mouse",
-  "type": "Two-photon Microscopy",
-  "state": "Awake, Behaving",
-  "area": ["Visual Cortex", "Higher Visual Areas"],
-  "link": "https://portal.brain-map.org/circuits-behavior/visual-behavior-2p",
-  "description": "Part of the Allen Institute's effort to understand visual processing, this dataset captures the activity of neurons in the visual cortex and higher visual areas of the awake, behaving mouse. It focuses on the neural circuits involved in visual perception and behavior.",
-  "keywords": ["visual behavior", "two-photon microscopy", "visual cortex", "neural circuits", "awake mouse", "behaving"],
-  "date_published": "2021-09-15",
-  "authors": ["Allen Institute"],
-  "institution": "Allen Institute for Brain Science"
+    "id": "4",
+    "name": "Allen Brain Map - Visual Behavior 2P",
+    "species": "Mouse",
+    "type": "Two-photon Microscopy",
+    "state": "Awake, Behaving",
+    "area": ["Visual Cortex", "Higher Visual Areas"],
+    "link": "https://portal.brain-map.org/circuits-behavior/visual-behavior-2p",
+    "description": "Part of the Allen Institute's effort to understand visual processing, this dataset captures the activity of neurons in the visual cortex and higher visual areas of the awake, behaving mouse. It focuses on the neural circuits involved in visual perception and behavior.",
+    "keywords": ["visual behavior", "two-photon microscopy", "visual cortex", "neural circuits", "awake mouse", "behaving"],
+    "date_published": "2021-09-15",
+    "authors": ["Allen Institute"],
+    "institution": "Allen Institute for Brain Science"
   }
-
-
 ]
