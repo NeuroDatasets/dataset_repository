@@ -53,10 +53,16 @@
 
     // Enhanced search function to include filters
     function search() {
-        var query = document.getElementById('search-input').value;
+        var userInput = document.getElementById('search-input').value;
         // Build the query string with filters
-        var speciesMouse = document.getElementById('species-mouse').checked ? 'species:Mouse' : '';
-        var typeEphys = document.getElementById('type-ephys').checked ? 'type:Electrophysiology' : '';
+        var speciesMouse = document.getElementById('species-mouse').checked ? '+species:Mouse' : '';
+        var typeEphys = document.getElementById('type-ephys').checked ? '+type:Electrophysiology' : '';
+        
+        // Add a wildcard to the user's input for partial matches
+        // This will look for matches that start with the user's input
+        var query = userInput.split(' ').map(word => `${word}*`).join(' ');
+
+        // Combine user input with filters, ensuring filters are only applied if present
         query = [query, speciesMouse, typeEphys].filter(Boolean).join(' ');
 
         var results = idx.search(query); // Execute the search with the constructed query
