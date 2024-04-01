@@ -1,58 +1,24 @@
 [
   {
     "id": "1",
-    "species": "Mouse",
-    "type": "2-photon microscopy",
-    "state": "Awake",
-    "area": "V1"
-  },
-  {
-    "id": "2",
-    "species": "Monkey",
-    "type": "Electrophysiology",
-    "state": "Behaving",
-    "area": "Prefrontal cortex"
-  },
-  {
-    "id": "3",
-    "species": "Rat",
-    "type": "Electrophysiology",
-    "state": "Anesthetized",
-    "area": "Hippocampus"
-  },
-  {
-    "id": "4",
-    "species": "Mouse",
-    "type": "2-photon microscopy",
-    "state": "Awake",
-    "area": "Somatosensory cortex"
-  },
-  {
-    "id": "5",
-    "species": "Monkey",
-    "type": "Electrophysiology",
-    "state": "Behaving",
-    "area": "V4"
-  },
-
-  {
-    "id": "6",
     "name": "Allen Institute Visual Coding - Neuropixels",
     "species": "Mouse",
     "type": "Electrophysiology",
     "state": "Awake, Behaving",
     "area": ["V1", "CA1", "Thalamus", "Somatosensory Cortex", "Prefrontal Cortex"],
-    "link": "https://allensdk.readthedocs.io/en/latest/visual_coding_neuropixels.html"
+    "link": "https://allensdk.readthedocs.io/en/latest/visual_coding_neuropixels.html",
+    "description": "Large-scale dataset of visual responses across multiple brain areas", 
+    "keywords": ["visual system", "decision-making", "Neuropixels"] 
   },
-
   {
-    "id": "7",
+    "id": "2",
     "name": "IBL Brain-wide Map",
     "species": "Mouse",
     "type": "Electrophysiology, Behavioral",
     "state": "Awake, Task-Performing",
     "area": ["Motor Cortex", "Striatum", "Frontal Cortex", "Hippocampus"],
-    "link": "https://int-brain-lab.github.io/iblenv/notebooks_external/data_release_brainwidemap.html"
+    "link": "https://int-brain-lab.github.io/iblenv/notebooks_external/data_release_brainwidemap.html",
+    "description": "...", // Add a description for the IBL dataset
+    "keywords": [] 
   }
-
 ]
