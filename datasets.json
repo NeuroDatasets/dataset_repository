@@ -53,6 +53,6 @@
     "state": "Awake, Task-Performing",
     "area": ["Motor Cortex", "Striatum", "Frontal Cortex", "Hippocampus"],
     "link": "https://int-brain-lab.github.io/iblenv/notebooks_external/data_release_brainwidemap.html"
-},
+  }
 
 ]
