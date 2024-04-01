@@ -26,43 +26,55 @@
   <div id="results"></div>
 
   <script>
-    var idx; 
-    var datasets; 
+    var idx;
+    var datasets;
 
+    // Initial fetch and index creation
     fetch('datasets.json').then(function(response) {
-      return response.json();
+        return response.json();
     }).then(function(data) {
-      datasets = data;
-      idx = lunr(function() {
-        this.ref('id');
-        this.field('species');
-        this.field('type');
-        this.field('state');
-        this.field('area'); // Search within the area array
-        this.field('keywords'); // Add keywords field 
-      });
+        datasets = data;
+        idx = lunr(function() {
+            this.ref('id');
+            this.field('name');
+            this.field('species');
+            this.field('type');
+            this.field('state');
+            this.field('area');
+            this.field('keywords');
 
-      datasets.forEach(function(doc) {
-        this.add(doc);
-      }, this);
+            datasets.forEach(function(doc) {
+                // Prepare document for indexing
+                doc.area = doc.area.join(" "); // Convert area array to string
+                this.add(doc);
+            }, this);
+        });
     });
 
+    // Enhanced search function to include filters
     function search() {
-      var query = document.getElementById('search-input').value;
-      var results = idx.search(query);
-      var resultData = results.map(function(result) {
-        return datasets.find(dataset => dataset.id === result.ref);
-      });
-      
-      var resultsHTML = resultData.map(function(dataset) {
-        return `<li>
-                  <a href="${dataset.link}" target="_blank">${dataset.name}</a>
-                  <p class="description">${dataset.description.slice(0, 100)}...</p> 
-                  <p class="metadata">Species: ${dataset.species} | Type: ${dataset.type}</p>
-                </li>`; 
-      }).join('');
-      document.getElementById('results').innerHTML = `<ul>${resultsHTML}</ul>`;
+        var query = document.getElementById('search-input').value;
+        // Build the query string with filters
+        var speciesMouse = document.getElementById('species-mouse').checked ? 'species:Mouse' : '';
+        var typeEphys = document.getElementById('type-ephys').checked ? 'type:Electrophysiology' : '';
+        query = [query, speciesMouse, typeEphys].filter(Boolean).join(' ');
+
+        var results = idx.search(query); // Execute the search with the constructed query
+        var resultData = results.map(function(result) {
+            return datasets.find(dataset => dataset.id === result.ref);
+        });
+
+        var resultsHTML = resultData.length > 0 ? resultData.map(function(dataset) {
+            return `<li>
+                        <a href="${dataset.link}" target="_blank">${dataset.name}</a>
+                        <p class="description">${dataset.description.slice(0, 100)}...</p>
+                        <p class="metadata">Species: ${dataset.species} | Type: ${dataset.type}</p>
+                    </li>`;
+        }).join('') : '<p class="no-results">No results found.</p>';
+
+        document.getElementById('results').innerHTML = `<ul>${resultsHTML}</ul>`;
     }
-  </script>
+    </script>
+
 </body>
 </html>
