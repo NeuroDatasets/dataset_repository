@@ -19,10 +19,16 @@
 <body>
   <input type="text" id="search-input" oninput="search()">
   <div>
+    <strong>Filter by:</strong><br>
     <label><input type="checkbox" id="species-mouse" onchange="search()"> Mouse</label>
+    <label><input type="checkbox" id="species-monkey" onchange="search()"> Monkey</label>
     <label><input type="checkbox" id="type-ephys" onchange="search()"> Electrophysiology</label>
-    <!-- Add more checkbox filters for other criteria -->
-  </div>
+    <label><input type="checkbox" id="type-2p" onchange="search()"> Two-photon Microscopy</label>
+    <label><input type="checkbox" id="area-v1" onchange="search()"> V1</label>
+    <label><input type="checkbox" id="area-hippocampus" onchange="search()"> Hippocampus</label>
+    <!-- Add more checkboxes as needed -->
+    </div>
+    
   <div id="results"></div>
 
   <script>
@@ -53,17 +59,23 @@
 
     // Enhanced search function to include filters
     function search() {
-        var userInput = document.getElementById('search-input').value;
-        // Build the query string with filters
-        var speciesMouse = document.getElementById('species-mouse').checked ? '+species:Mouse' : '';
-        var typeEphys = document.getElementById('type-ephys').checked ? '+type:Electrophysiology' : '';
-        
-        // Add a wildcard to the user's input for partial matches
-        // This will look for matches that start with the user's input
-        var query = userInput.split(' ').map(word => `${word}*`).join(' ');
+        var userInput = document.getElementById('search-input').value.trim();
+        var filters = [];
 
-        // Combine user input with filters, ensuring filters are only applied if present
-        query = [query, speciesMouse, typeEphys].filter(Boolean).join(' ');
+        // Check species checkboxes
+        if (document.getElementById('species-mouse').checked) filters.push('+species:Mouse');
+        if (document.getElementById('species-monkey').checked) filters.push('+species:Monkey');
+
+        // Check type checkboxes
+        if (document.getElementById('type-ephys').checked) filters.push('+type:Electrophysiology');
+        if (document.getElementById('type-2p').checked) filters.push('+type:"Two-photon Microscopy"');
+
+        // Check area checkboxes
+        if (document.getElementById('area-v1').checked) filters.push('+area:V1');
+        if (document.getElementById('area-hippocampus').checked) filters.push('+area:Hippocampus');
+
+        // Combine user input with filters
+        var query = userInput + ' ' + filters.join(' ');
 
         var results = idx.search(query); // Execute the search with the constructed query
         var resultData = results.map(function(result) {
