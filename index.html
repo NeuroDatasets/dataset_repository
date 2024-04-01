@@ -14,5 +14,24 @@
     </div>
 
   <script src="scripts.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        fetch('datasets.json')
+            .then(response => response.json())
+            .then(datasets => {
+                const listElement = document.getElementById('search-area'); // Assuming you want to list them here
+                const listHtml = datasets.map(dataset => `
+                    <div>
+                        <h3><a href="${dataset.link}" target="_blank">${dataset.name}</a></h3>
+                        <p>${dataset.description}</p>
+                        <span>Species: ${dataset.species}, Type: ${dataset.type}, State: ${dataset.state}, Areas: ${dataset.area.join(", ")}</span>
+                    </div>
+                `).join('');
+                listElement.innerHTML = listHtml;
+            });
+    });
+    </script>
+
 </body>
 </html>
