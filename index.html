@@ -1,28 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neural Recording Datasets</title>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            fetch('datasets.json')
-                .then(response => response.json())
-                .then(data => {
-                    const list = document.getElementById('datasetList');
-                    data.forEach(dataset => {
-                        const listItem = document.createElement('li');
-                        listItem.innerHTML = `<a href="${dataset.link}" target="_blank">${dataset.name}</a> - ${dataset.species}, ${dataset.type}, ${dataset.state}, Areas: ${Array.isArray(dataset.area) ? dataset.area.join(", ") : dataset.area}`;
-                        list.appendChild(listItem);
-                    });
-                })
-                .catch(error => console.error('Error loading the datasets:', error));
-        });
-    </script>
+  <title>Neural Recording Datasets</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Neural Recording Datasets</h1>
-    <p>Welcome to our collection of neural recording datasets. Browse the entire list or use our <a href="dataset-search.html">search page</a> to find specific datasets.</p>
-    <ul id="datasetList"></ul>
+  <h1>Neural Recording Dataset Repository</h1>
+
+  <div id="search-area">
+    </div>
+
+  <div id="results">
+    </div>
+
+  <script src="scripts.js"></script>
 </body>
 </html>
